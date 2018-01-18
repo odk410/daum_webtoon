@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>오늘의 다음웹툰</title>
+  </head>
+  <body>
+    <a href="/">홈으로 가기</a>
+    <table>
+      <thead>
+        <tr>
+          <th>이미지</th>
+          <th>제목</th>
+          <th>소개</th>
+          <th>평점</th>
+          <th>보러가기</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @webtoons.each do |webtoon| %>
+        <tr>
+          <td><img width="50" src="<%= webtoon[:img_url] %>" alt="<%= webtoon[:title]%>"></td>
+          <td><%= webtoon[:name] %></td>
+          <td><%= webtoon[:desc] %></td>
+          <td><%= webtoon[:score].round(1) %></td>
+          <td><a href="<%= webtoon[:url]%>" target="_blank">보러가기</a></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>
